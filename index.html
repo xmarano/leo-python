@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Léo Python</title>
+
+    <link rel="icon" type="image/png" href="images/logo_python.png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link media="all" type="text/css" rel="stylesheet" href="css/bootstrap.superhero.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="css/codemirror.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="https://pythonsandbox.com/css/base16-dark.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="https://pythonsandbox.com/css/sandbox.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+    <script src="https://pythonsandbox.com/js/codemirror-custom.js"></script>
+
+    <script src="https://pythonsandbox.com/js/skulpt.min.js"></script>
+
+    <script src="https://pythonsandbox.com/js/codemirror-custom.js"></script>
+
+    <script src="https://pythonsandbox.com/js/skulpt-stdlib.js"></script>
+
+    <script src="js/sandbox.js"></script>
+</head>
+
+<body>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10538200-12"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-10538200-12');
+    </script>
+
+    <div class="page-content">
+
+
+        <div class="page-header">
+
+            <form method="POST" action="https://leopython.fr/binaire" accept-charset="UTF-8"><input name="_token"
+                    type="hidden" value="S0WndcCI4hIAcnigqHecXoV6GuowefHNcMIvVN8w">
+
+                <input name="mode" type="hidden" value="text">
+
+                <input name="save-as-next" type="hidden" value="0">
+
+                <input name="save-as-last" type="hidden" value="0">
+
+                <input name="save-as-new" type="hidden" value="0">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-md-6 window-container">
+
+                            <div class="row">
+
+                                <div class="col-xs-12">
+
+                                    <textarea id="sandbox">#tapez votre code ici :</textarea>
+
+                                </div>
+
+                                <div class="col-xs-12 button-row">
+
+                                    <button type="button" class="btn btn-info runner"><span
+                                            class="glyphicon glyphicon-play"></span></button>
+                                            
+                                    <div class="pull-right">
+
+                                        <button class="binairebutton">binaire</button>
+
+                                    </div>
+
+                                    <style>
+                                        .binairebutton {
+                                              color: #1d1d1d;
+                                              background-color: #ffffff;
+                                              border-color: transparent;
+                                              display: inline-block;
+                                              margin-bottom: 0;
+                                              font-weight: normal;
+                                              text-align: center;
+                                              vertical-align: middle;
+                                              -ms-touch-action: manipulation;
+                                              touch-action: manipulation;
+                                              cursor: pointer;
+                                              background-image: none;
+                                              border: 1px solid transparent;
+                                              white-space: nowrap;
+                                              padding: 8px 16px;
+                                              font-size: 15px;
+                                              line-height: 1.42857143;
+                                              border-radius: 0;
+                                              -webkit-user-select: none;
+                                              -moz-user-select: none;
+                                              -ms-user-select: none;
+                                              user-select: none
+                                        }
+                                      </style>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 window-container">
+
+                            <pre id="output"></pre>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <div id="modal" class="modal fade" tabindex="-1" role="dialog">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+
+                        <h4 class="modal-title">Ooops...</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+                <!-- /.modal-content -->
+
+            </div>
+            <!-- /.modal-dialog -->
+
+        </div>
+        <!-- /.modal -->
+        <div id="modal-save" class="modal fade" tabindex="-1" role="dialog">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+
+                        <h4 class="modal-title">Save Notice...</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+                        <p class="text-warning">The file you are saving already has a later revision.</p>
+                        <p>If you save as normal, the next revision in this file series will be overwritten.
+                            Alternatively, you may either select to save as a new revision (which could cause
+                            discontinuity of progression in your revisions), or save as an
+                            entirely new program/file.</p>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+
+                        <button type="button" class="btn btn-success btn-save" id="btn-save-next"
+                            data-field="save-as-next">Overwrite Revision</button>
+
+                        <button type="button" class="btn btn-success btn-save" id="btn-save-last"
+                            data-field="save-as-last">New Revision</button>
+
+                        <button type="button" class="btn btn-success btn-save" id="btn-save-new"
+                            data-field="save-as-new">New File</button>
+
+                    </div>
+
+                </div>
+                <!-- /.modal-content -->
+
+            </div>
+            <!-- /.modal-dialog -->
+
+        </div>
+        <!-- /.modal -->
+
+
+
+        <div id="modal-checking" class="modal fade" tabindex="-1" role="dialog">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">Please wait...</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+                        <p class="text-warning">We're checking the status of your current file. This should only take a
+                            few seconds.</p>
+                    </div>
+
+                </div>
+                <!-- /.modal-content -->
+
+            </div>
+            <!-- /.modal-dialog -->
+
+        </div>
+        <!-- /.modal -->
+
+
+
+        <div id="modal-error" class="modal fade" tabindex="-1" role="dialog">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+
+                        <h4 class="modal-title">Uh oh...</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        Sorry, an error occurred when talking to our server. Please try to save again later.
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+                <!-- /.modal-content -->
+
+            </div>
+            <!-- /.modal-dialog -->
+
+        </div>
+        <!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <!-- Bootstrap JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+
+
+
+    <script src="https://pythonsandbox.com/js/sandbox-saving.js?20220113"></script>
+
+
+    <script>
+        (function ($) {
+
+            $(document).ready(function () {
+
+
+
+                var ps = new PythonSandbox({
+
+                    codeSourceId: 'sandbox',
+
+                    codeDisplayId: 'output',
+
+                    turtleDisplayId: 'canvas',
+
+                    codeMirrorId: 'mirror',
+
+                    logToConsole: false,
+
+                    // errorHandler: function(txt) {myCustomErrorHandler(txt);}
+
+                });
+
+
+
+                $('.runner').click(function () {
+
+                    ps.execute();
+
+                });
+
+
+
+                $('.wrapper').click(function () {
+
+                    var wrapping = $(this).data('wrap') || $(this).data('wrap') == 'true';
+
+                    ps.toggleWrapping(!wrapping);
+
+                    $(this).data('wrap', !wrapping);
+
+                    $(this).toggleClass('btn-danger btn-default');
+
+                });
+
+
+
+                function myCustomErrorHandler(txt) {
+
+                    $('#modal .modal-body').html(txt);
+
+                    $('#modal').modal('show');
+
+                }
+
+            });
+
+        })(jQuery);
+    </script>
+
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+
+</body>
+
+</html>

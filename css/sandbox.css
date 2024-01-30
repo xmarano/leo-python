@@ -1,0 +1,150 @@
+#sandbox {
+    width: 100%;
+    min-height: 400px;
+    height: 600px;
+}
+
+#output {
+	width:100%;
+	min-height:400px;
+	height:600px;
+	border: 1px solid #1d1d1d;
+}
+
+#canvas {
+    width: 100%;
+    min-height: 400px;
+    height: 600px;
+    background-color: #fff;
+    border: 4px solid #5cb85c;
+}
+
+#sandboxCanvas {
+    width: 525px;
+    min-height: 400px;
+    height: 600px;
+    background-color: #fff;
+    border: 4px solid #d9534f;
+}
+
+.CodeMirror {
+    min-height: 400px;
+    height: 600px;
+}
+
+.page-header {
+    border-bottom: none;
+}
+
+.window-container {
+    margin-bottom: 40px;
+}
+
+.button-row {
+    margin-top: 10px;
+}
+
+.no-show {
+    height: 0px !important;
+}
+
+.code-error {
+    background-color: #262527c9;
+}
+
+.control-row {
+    margin-top: 10px;
+}
+
+.control-row button {
+    display: inline-block;
+}
+
+.control-row .control {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.button-group {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#graphics-page .window-canvas .button-row {
+    margin-top: 5px;
+}
+
+footer {
+    margin: 40px 0px 20px 0px;
+}
+
+.fancy {
+    font-family: monospace;
+    background-color: #111;
+    color: #fff;
+    border: 0px;
+}
+
+.fancy .reserved {
+    color: #ac4142
+}
+
+.fancy .var {
+    color: #90a959
+}
+
+.fancy .num {
+    color: #aa759f
+}
+
+.fancy .comment {
+    color: #8f5536
+}
+
+.fancy .string {
+    color: #f4bf75
+}
+
+code {
+    background: none !important;
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: normal;
+    /*font-style: italic;*/
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+    padding: 5px 5px 5px 10px;
+    display: block;
+    margin: 5px 0px 10px 0px;
+}
+
+.doc-block-method {
+    margin-bottom: 30px;
+}
+
+#modal-about-file .filename {
+    font-size: 1.2em;
+    color: #f4bf75;
+}
+
+#modal-about-file .filename .version {
+    padding: 0px 3px;
+}
+
+#modal-about-file .filename .extension {
+    border: 1px solid #5cb85c;
+    color: #5cb85c;
+    padding: 0px 3px;
+}
+
+#contact .form-control,
+#contact .g-recaptcha {
+    margin-bottom: 20px;
+}
+
+#contact label {
+    font-size: 1.0em;
+}
+
+.alert-primary {
+    background-color: #df691a;
+}
